@@ -3,25 +3,22 @@ title: "Create or Update Dataset"
 author: "Aaron Schroeder"
 date: "11/18/2021"
 output: html_document
-dataset:
+dataset: 
   citation:
-      title: "NEW Test dataset"
+      title: "Social Data Commons Reading Score SOL Mean and Median Pass Rate"
       subtitle: ""
-      dsDescriptionValue: "Virginia Standards of Learning Test Scores collected by the Virginia Department of Education (VDOE)"
+      dsDescriptionValue: "Virginia Standards of Learning Reading Test Pass Rate"
       subject: "Social Sciences (Ex: Education, Politics, Sociology, Economics, Psychology)"
       productionDate: "2021-11-17"
-      timePeriodCoveredStart: "2015-01-01"
-      timePeriodCoveredEnd: "2021-01-01"
+      timePeriodCoveredStart: "2018-09-01"
+      timePeriodCoveredEnd: "2021-06-30"
       dataSources:
-        - "ACS"
-        - "County Health Rankings"
+        - "Virginia Department of Education (VDOE)"
       author:
         - authorName: "Schroeder, Aaron"
           authorAffiliation: "Univeristy of Virginia"
         - authorName: "Charankevich, Hanna"
           authorAffiliation: "Univeristy of Virginia"
-        - authorName: "Niagra, Bob"
-          authorAffiliation: "Univeristy of Waterloo"
       datasetContact:
         - datasetContactEmail: "ads7fg@virginia.edu"
           datasetContactName: "Schroeder, Aaron"
@@ -32,6 +29,7 @@ dataset:
     geographicUnit:
       - "State Health District"
       - "County"
+      - "School District"
 ---
 
 ```{r setup, include=FALSE}
