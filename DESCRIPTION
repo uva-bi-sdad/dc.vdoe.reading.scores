@@ -1,12 +1,13 @@
 Package: dc.vdoe.reading.scores
 Type: Package
-Title: Social Data Commons Reading Score SOL Mean and Median Pass Rate
+Title: Social Data Commons: Education & Training: Reading Score SOL Mean and Median Pass Rate
 Version: 0.1.0
 Authors@R: c(
     person("Social and Decision Analytics Division (SDAD), Biocomplexity Institute, University of Virginia", role = c("aut")),
     person("Hanna", "Charankevich", email = "hc2cc@virginia.edu", role = c("aut", "cre"))
   )
-Description: Allows user to easily get 3rd grade reading test pass rate data from the SDAD Data Commons.  Data can be provided directly or in a file.
+Description: Allows user to easily get 3rd grade SOL reading pass rate data from the SDAD Data Commons.  Data can be provided directly or in a file.
+
 License: CC0 1.0
 Encoding: UTF-8
 LazyData: true

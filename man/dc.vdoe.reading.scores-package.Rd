@@ -4,9 +4,11 @@
 \name{dc.vdoe.reading.scores-package}
 \alias{dc.vdoe.reading.scores}
 \alias{dc.vdoe.reading.scores-package}
-\title{dc.vdoe.reading.scores: Social Data Commons Reading Score SOL Mean and Median Pass Rate}
+
+\title{dc.vdoe.reading.scores: Social Data Commons: Education & Training: Reading Score SOL Mean and Median Pass Rate}
 \description{
-Allows user to easily get 3rd grade reading test pass rate data from the SDAD Data Commons. Data can be provided directly or in a file.
+Allows user to easily get 3rd grade SOL reading pass rate data from the SDAD Data Commons. Data can be provided directly or in a file.
+
 }
 \author{
 \strong{Maintainer}: Hanna Charankevich \email{hc2cc@virginia.edu}
