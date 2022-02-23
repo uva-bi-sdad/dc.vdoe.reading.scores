@@ -5,9 +5,9 @@ date: "11/18/2021"
 output: html_document
 dataset: 
   citation:
-      title: "Social Data Commons Reading Score SOL Mean and Median Pass Rate"
+      title: "Social Data Commons: Education & Training: Reading Score SOL Mean and Median Pass Rate"
       subtitle: ""
-      dsDescriptionValue: "Virginia Standards of Learning Reading Test Pass Rate"
+      dsDescriptionValue: "Virginia Standards of Learning 3rd Grade Reading Test Pass Rate"
       subject: "Social Sciences (Ex: Education, Politics, Sociology, Economics, Psychology)"
       productionDate: "2021-11-17"
       timePeriodCoveredStart: "2018-09-01"
