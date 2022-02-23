@@ -17,13 +17,20 @@ dataset_doi <- readLines(here::here("data/dataset_doi"))[1]
 
 ## Code you used to create dataset - LIST BELOW
 
-Ex: dc_education_training.va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score: reading_scores.R
+
+dc_education_training.va_hd_vdoe_2019_2021_3rd_grade_mean_median_read_score, 
+dc_education_training.va_ct_vdoe_2019_2021_3rd_grade_mean_median_read_score,
+dc_education_training.va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score: reading_score.R
+
 
 
 ```{r data}
 
 # Ex database_table_name: "va_hd_vdoe_2019_2021_3rd_grade_mean_median_read_score"
-table_names = c("va_ct_vdoe_2019_2021_3rd_grade_mean_median_read_score", "va_hd_vdoe_2019_2021_3rd_grade_mean_median_read_score") 
+table_names = c("va_hd_vdoe_2019_2021_3rd_grade_mean_median_read_score",
+                "va_ct_vdoe_2019_2021_3rd_grade_mean_median_read_score",
+                "va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score") 
+
     
 con <- get_db_conn()
 
@@ -44,7 +51,8 @@ if (length(table_names) > 1)
 
 DBI::dbDisconnect(con)
 
-all_geos_file_name <- "va_hdct_vdoe_2019_2021_3rd_grade_mean_median_read_score"  #Ex: "va_vdoe_2019_2021_3rd_grade_mean_median_read_score"
+all_geos_file_name <- "va_hdctsd_vdoe_2019_2021_3rd_grade_mean_median_read_score"  #Ex: "va_vdoe_2019_2021_3rd_grade_mean_median_read_score"
+
 assign(all_geos_file_name, all_geos_dat)
 ```
 

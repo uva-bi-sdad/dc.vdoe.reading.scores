@@ -7,6 +7,7 @@ Authors@R: c(
     person("Hanna", "Charankevich", email = "hc2cc@virginia.edu", role = c("aut", "cre"))
   )
 Description: Allows user to easily get 3rd grade SOL reading pass rate data from the SDAD Data Commons.  Data can be provided directly or in a file.
+
 License: CC0 1.0
 Encoding: UTF-8
 LazyData: true

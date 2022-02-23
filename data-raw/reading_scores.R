@@ -8,7 +8,7 @@ library(reshape2)
 library(sf)
 
 
-# school_test <- read_excel("~/R/access_to_edu/2020-2021-school-test-by-test.xlsx")
+# school_test <- read_excel("2020-2021-school-test-by-test.xlsx")
 # # keep Subject = English: Reading and Grade = Gr 3
 # reading_score <- subset(school_test, Subject == "English: Reading" & Grade == "Gr 3")
 #
@@ -28,10 +28,10 @@ library(sf)
 #           full_results = FALSE)
 #
 # # save
-# # write_csv(reading_lonlat, "~/R/access_to_edu/reading_score_lonlat.csv")
+# # write_csv(reading_lonlat, "reading_score_lonlat.csv")
 
 # # load in data
-# read_score <- read_csv("~/R/access_to_edu/reading_score_lonlat.csv")
+# read_score <- read_csv("reading_score_lonlat.csv")
 # read_score <- read_score[!is.na(read_score$latitude),]
 #
 # # school district shapes
@@ -61,12 +61,12 @@ library(sf)
 #
 # read_score['geoid_sd'] <- sd_list
 #
-# write_csv(read_score, "~/R/access_to_edu/reading_score_sd.csv")
+# write_csv(read_score, "reading_score_sd.csv")
 
 #############################################
 
 # load in data
-read_score <- read_csv("~/R/access_to_edu/reading_score_lonlat.csv")
+read_score <- read_csv("reading_score_lonlat.csv")
 read_score$`2018-2019 Pass Rate` <- as.numeric(read_score$`2018-2019 Pass Rate`)
 read_score$`2019-2020 Pass Rate` <- as.numeric(read_score$`2019-2020 Pass Rate`)
 read_score$`2020-2021 Pass Rate` <- as.numeric(read_score$`2020-2021 Pass Rate`)
@@ -77,8 +77,8 @@ con <- dbConnect(PostgreSQL(),
                  dbname = "sdad",
                  host = "postgis1",
                  port = 5432,
-                 user = "hc2cc",
-                 password = "hc2cchc2cc")
+                 user = "YOUR_USERNAME",
+                 password = "YOUR_PASSWORD")
 
 counties <- dbGetQuery(con, "SELECT * FROM dc_common.va_ct_sdad_2021_virginia_county_geoids")
 health_dist <- dbGetQuery(con, "SELECT * FROM dc_common.va_hdct_sdad_2021_health_district_counties")
@@ -138,7 +138,7 @@ read_score_ct_long['measure_type'] = "percent"
 #re-oder columns
 read_score_ct_long <- read_score_ct_long[, c(1, 2, 3, 6, 4, 5, 7)]
 
-write_csv(read_score_ct, "~/R/access_to_edu/va_ct_vdoe_2019_21_3rdGrade_MeanMedReadingScore.csv")
+#write_csv(read_score_ct, "va_ct_vdoe_2019_21_3rdGrade_MeanMedReadingScore.csv")
 
 ##################### HEALTH DISCTRICT ##############
 read_score_hd <- left_join(read_score_ct, health_dist, by= c("geoid" = "geoid_county"))
@@ -196,11 +196,11 @@ read_score_hd_long['measure_type'] = "percent"
 #re-oder columns
 read_score_hd_long <- read_score_hd_long[, c(1, 2, 3, 6, 4, 5, 7)]
 
-write_csv(read_score_hd, "~/R/access_to_edu/va_hd_vdoe_2019_21_3rdGrade_MeanMedReadingScore.csv")
+#write_csv(read_score_hd, "va_hd_vdoe_2019_21_3rdGrade_MeanMedReadingScore.csv")
 
 ################################ SCHOOL DISTRICT
 # upload school geoids
-read_score_sd <- read_csv("~/R/access_to_edu/reading_score_sd.csv")
+read_score_sd <- read_csv("reading_score_sd.csv")
 read_score_sd$`2018-2019 Pass Rate` <- as.numeric(read_score_sd$`2018-2019 Pass Rate`)
 read_score_sd$`2019-2020 Pass Rate` <- as.numeric(read_score_sd$`2019-2020 Pass Rate`)
 read_score_sd$`2020-2021 Pass Rate` <- as.numeric(read_score_sd$`2020-2021 Pass Rate`)
@@ -257,7 +257,7 @@ read_score_sd_long['measure_type'] = "percent"
 #re-oder columns
 read_score_sd_long <- read_score_sd_long[, c(1, 2, 3, 6, 4, 5, 7)]
 
-write_csv(read_score_hd, "~/R/access_to_edu/va_sd_vdoe_2019_21_3rdGrade_MeanMedReadingScore.csv")
+#write_csv(read_score_hd, "va_sd_vdoe_2019_21_3rdGrade_MeanMedReadingScore.csv")
 
 ##################### ADD TO DB
 # connect to database
@@ -265,8 +265,8 @@ con <- dbConnect(PostgreSQL(),
                  dbname = "sdad",
                  host = "postgis1",
                  port = 5432,
-                 user = "hc2cc",
-                 password = "hc2cchc2cc")
+                 user = "YOUR_USER_NAME",
+                 password = "YOUR_PASSWORD")
 
 dbWriteTable(con, c("dc_education_training", "va_ct_vdoe_2019_2021_3rd_grade_mean_median_read_score"),
              read_score_ct_long,  row.names = F)
@@ -275,6 +275,10 @@ dbWriteTable(con, c("dc_education_training", "va_hd_vdoe_2019_2021_3rd_grade_mea
 dbWriteTable(con, c("dc_education_training", "va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score"),
              read_score_sd_long, row.names = F)
 
+# get tables
+read_score_ct_long <- dbGetQuery(con, "SELECT * FROM dc_education_training.va_ct_vdoe_2019_2021_3rd_grade_mean_median_read_score")
+read_score_hd_long <- dbGetQuery(con, "SELECT * FROM dc_education_training.va_hd_vdoe_2019_2021_3rd_grade_mean_median_read_score")
+read_score_sd_long <- dbGetQuery(con, "SELECT * FROM dc_education_training.va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score")
 # change ownership to SDAD
 dbSendStatement(con, "ALTER TABLE dc_education_training.va_ct_vdoe_2019_2021_3rd_grade_mean_median_read_score
                     OWNER TO data_commons")
@@ -287,11 +291,34 @@ dbRemoveTable(con, c("dc_education_training", "va_ct_vdoe_2019_2021_3rd_grade_me
              read_score_ct_long)
 dbRemoveTable(con, c("dc_education_training", "va_hd_vdoe_2019_2021_3rd_grade_mean_median_read_score"),
              read_score_hd_long)
-dbRemoveTable(con, c("dc_education_training", "va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score"),
-             read_score_sd_long)
+dbRemoveTable(con, c("dc_education_training", "va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score"))
 
-dbRemoveTable(con, c("dc_education_training", "va_ct_vdoe_2019_2021_3rdGrade_AvReadingScore"))
-dbRemoveTable(con, c("dc_education_training","va_hd_vdoe_2019_2021_3rdGrade_AvReadingScore"))
+#dbRemoveTable(con, c("dc_education_training", "va_ct_vdoe_2019_2021_3rdGrade_AvReadingScore"))
+#dbRemoveTable(con, c("dc_education_training","va_hd_vdoe_2019_2021_3rdGrade_AvReadingScore"))
+
+# geographies names
+geo_names <- dbGetQuery(con, "SELECT * FROM dc_geographies.ncr_cttrbg_tiger_2010_2020_geo_names")
+
+# health districts names
+health_dist <- dbGetQuery(con, "SELECT * FROM dc_geographies.va_hd_vdh_2021_health_district_geo_names")
+
 
 dbDisconnect(con)
+
+counties <- geo_names %>% filter(region_type=="county")
+
+# remove old names and geoids
+read_score_ct_long <- read_score_ct_long %>% select(-region_name, -region_type)
+read_score_hd_long <- read_score_hd_long %>% select(-geoid, -region_type)
+
+# add new names and geoids
+read_score_ct_long <- left_join(read_score_ct_long, counties, by="geoid")
+read_score_ct_long <- left_join(read_score_hd_long, health_dist, by="region_name")
+
+# re-arrange columns
+read_score_ct_long <- read_score_ct_long[, c(1, 7,6, 2, 3, 4, 5)]
+read_score_hd_long <- read_score_hd_long[, c(6, 7, 1, 2, 3, 4, 5)]
+
+# re-name geoid col in sd dataset
+names(read_score_sd_long)[1] <- "geoid"
 
