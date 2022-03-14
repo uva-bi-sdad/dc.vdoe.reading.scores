@@ -1,0 +1,21 @@
+{
+  "3rd_grade_median_read_score:median_read_pass_rate": {
+    "category": "Education",
+    "measure_table": "dc_education_training.va_hdct_vdoe_2019_2021_3rd_grade_median_read_score",
+    "full_name": "3rd_grade_median_read_score:median_read_pass_rate",
+    "measure": "median_pass_rate",
+    "type": "percent",
+    "short_name": "3rd grade population passing reading",
+    "long_name": "Median percent of 3rd grade population passing reading test",
+    "short_description": "Median percent of 3rd grade population passing reading test for schools in the region",
+    "long_description": "Median percent of 3rd grade population passing reading test. The median is calculated across schools in the region.",
+    "statement": "On average {value} of 3rd graders pass reading in {features.name}.",
+    "sources": [
+      {
+        "name": "Virginia Department of Education",
+        "date_accessed": 2021,
+        "url": "https://www.doe.virginia.gov/statistics_reports/sol-pass-rates/index.shtml"
+      }
+    ]
+  }
+}
