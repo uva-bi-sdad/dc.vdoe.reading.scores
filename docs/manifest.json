@@ -1,0 +1,53 @@
+{
+  "name": "dc.vdoe.reading.scores",
+  "data": [
+    {
+      "name": "3rd_grade_mean_median_read_score",
+      "variables": ["mean_read_pass_rate", "median_read_pass_rate"],
+      "file": "va_hdct_vdoe_2019_2021_3rd_grade_mean_median_read_score.csv.xz",
+      "size": 4632,
+      "md5": "85c71e77820c0073e60e28ce68fd8076"
+    },
+    {
+      "name": "3rd_grade_mean_median_read_score",
+      "variables": ["mean_read_pass_rate", "median_read_pass_rate"],
+      "file": "va_hdctsd_vdoe_2019_2021_3rd_grade_mean_median_read_score.csv.xz",
+      "size": 7328,
+      "md5": "7dfe6fd85bf3e26b68d93f2863a8f367"
+    },
+    {
+      "name": "3rd_grade_mean_median_read_score",
+      "variables": ["mean_read_pass_rate", "median_read_pass_rate"],
+      "file": "va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score.csv.xz",
+      "size": 2212,
+      "md5": "349fb2d9c451d6d31cebb15f8ef083b7"
+    }
+  ],
+  "distributions": {
+    "dataverse": {
+      "id": 55744,
+      "doi": "doi:10.18130/V3/KWKNC2",
+      "server": "https://dataverse.lib.virginia.edu/",
+      "data": [
+        {
+          "file": "va_hdctsd_vdoe_2019_2021_3rd_grade_mean_median_read_score.csv.xz",
+          "id": 55934,
+          "size": 7328,
+          "md5": "7dfe6fd85bf3e26b68d93f2863a8f367"
+        },
+        {
+          "file": "va_hdct_vdoe_2019_2021_3rd_grade_mean_median_read_score.csv.xz",
+          "id": 55749,
+          "size": 4632,
+          "md5": "85c71e77820c0073e60e28ce68fd8076"
+        },
+        {
+          "file": "va_sd_vdoe_2019_2021_3rd_grade_mean_median_read_score.csv.xz",
+          "id": 55746,
+          "size": 2212,
+          "md5": "349fb2d9c451d6d31cebb15f8ef083b7"
+        }
+      ]
+    }
+  }
+}

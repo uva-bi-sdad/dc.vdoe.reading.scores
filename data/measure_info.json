@@ -1,9 +1,9 @@
 {
-  "3rd_grade_median_read_score:median_read_pass_rate": {
+  "3rd_grade_mean_median_read_score:median_read_pass_rate": {
     "category": "Education",
     "measure_table": "dc_education_training.va_hdct_vdoe_2019_2021_3rd_grade_median_read_score",
-    "full_name": "3rd_grade_median_read_score:median_read_pass_rate",
-    "measure": "median_pass_rate",
+    "full_name": "3rd_grade_mean_median_read_score:median_read_pass_rate",
+    "measure": "median_read_pass_rate",
     "type": "percent",
     "short_name": "3rd grade population passing reading",
     "long_name": "Median percent of 3rd grade population passing reading test",
