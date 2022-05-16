@@ -5,11 +5,12 @@
     "full_name": "3rd_grade_mean_median_read_score:median_read_pass_rate",
     "measure": "median_read_pass_rate",
     "type": "percent",
-    "short_name": "3rd grade population passing reading",
-    "long_name": "Median percent of 3rd grade population passing reading test",
-    "short_description": "Median percent of 3rd grade population passing reading test for schools in the region",
-    "long_description": "Median percent of 3rd grade population passing reading test. The median is calculated across schools in the region.",
+    "short_name": "Percentage of 3rd graders passing reading",
+    "long_name": "Median percentage of 3rd graders passing reading test",
+    "short_description": "Median percentage of 3rd grade population passing reading test for schools in the region",
+    "long_description": "Median percentage of 3rd grade population passing reading test. The median is calculated across schools in the region.",
     "statement": "On average {value} of 3rd graders pass reading in {features.name}.",
+    "equity_category": "Status",
     "sources": [
       {
         "name": "Virginia Department of Education",
